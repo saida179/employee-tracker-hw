@@ -18,11 +18,15 @@ var connection = mysql.createConnection({
   function employment() {
     inquirer.prompt([
         {
-            type: "",
-            name: "",
-            message: "",
-            choices: [""]
+            type: "list",
+            name: "work",
+            message: "choose one of the following",
+            choices: ["Add Employee", "Add Employee Role", "Add Department", "View Employees", "View Employee Role", "View Departments", "Update Employee", "Delete Employee", "Delete Employee Role", "Delete Department"]
         }
+
+      ]).then(answers => {
+        if (answers.work === "Exit") {
+            connection.end();
 
         //Build a command-line application that at a minimum allows the user to:
 
